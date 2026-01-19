@@ -1,0 +1,215 @@
+{
+  "info": {
+    "name": "Me-API Playground Collection",
+    "description": "Postman collection for Me-API Playground endpoints",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/health",
+          "host": ["{{BASE_URL}}"],
+          "path": ["health"]
+        },
+        "description": "Check if API is running"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Profile",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/profile",
+          "host": ["{{BASE_URL}}"],
+          "path": ["profile"]
+        },
+        "description": "Get complete profile with all related data"
+      },
+      "response": []
+    },
+    {
+      "name": "Update Profile",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Developer\",\n  \"email\": \"john@example.com\",\n  \"bio\": \"Updated bio\",\n  \"location\": \"San Francisco, CA\",\n  \"avatar_url\": \"https://example.com/avatar.jpg\"\n}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/profile",
+          "host": ["{{BASE_URL}}"],
+          "path": ["profile"]
+        },
+        "description": "Update profile information"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Skill",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"skill_name\": \"GraphQL\",\n  \"proficiency\": \"Intermediate\"\n}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/profile/skills",
+          "host": ["{{BASE_URL}}"],
+          "path": ["profile", "skills"]
+        },
+        "description": "Add a new skill"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Project",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"New Project\",\n  \"description\": \"Project description\",\n  \"github_link\": \"https://github.com/user/project\",\n  \"live_link\": \"https://project-demo.com\"\n}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/profile/projects",
+          "host": ["{{BASE_URL}}"],
+          "path": ["profile", "projects"]
+        },
+        "description": "Add a new project"
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Projects",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/projects",
+          "host": ["{{BASE_URL}}"],
+          "path": ["projects"]
+        },
+        "description": "Get all projects"
+      },
+      "response": []
+    },
+    {
+      "name": "Filter Projects by Skill",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/projects?skill=Python",
+          "host": ["{{BASE_URL}}"],
+          "path": ["projects"],
+          "query": [
+            {
+              "key": "skill",
+              "value": "Python"
+            }
+          ]
+        },
+        "description": "Get projects filtered by skill"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Project by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/projects/1",
+          "host": ["{{BASE_URL}}"],
+          "path": ["projects", "1"]
+        },
+        "description": "Get specific project"
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Skills",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/skills",
+          "host": ["{{BASE_URL}}"],
+          "path": ["skills"]
+        },
+        "description": "Get all skills"
+      },
+      "response": []
+    },
+    {
+      "name": "Get Top Skills",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/skills/top?limit=10",
+          "host": ["{{BASE_URL}}"],
+          "path": ["skills", "top"],
+          "query": [
+            {
+              "key": "limit",
+              "value": "10"
+            }
+          ]
+        },
+        "description": "Get top skills by proficiency"
+      },
+      "response": []
+    },
+    {
+      "name": "Search",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/search?q=React",
+          "host": ["{{BASE_URL}}"],
+          "path": ["search"],
+          "query": [
+            {
+              "key": "q",
+              "value": "React"
+            }
+          ]
+        },
+        "description": "Search across projects and skills"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}
