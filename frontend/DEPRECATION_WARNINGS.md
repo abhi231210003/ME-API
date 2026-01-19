@@ -91,12 +91,17 @@ A future enhancement could be migrating to one of these tools, but that's beyond
     "axios": "^1.6.0"
   },
   "overrides": {
-    "nth-check": "^2.1.1",
-    "postcss": "^8.4.31",
-    "webpack-dev-server": "^5.2.1"
+    "nth-check": "^2.1.1",        // Fixes high severity vulnerability (inefficient regex)
+    "postcss": "^8.4.31",          // Fixes moderate severity vulnerability (line return parsing)
+    "webpack-dev-server": "^5.2.1" // Fixes moderate severity vulnerabilities (source code theft)
   }
 }
 ```
+
+**Why these specific overrides?**
+- **nth-check**: Forces version 2.1.1+ to fix CVE with inefficient regular expression complexity
+- **postcss**: Forces version 8.4.31+ to fix line return parsing error  
+- **webpack-dev-server**: Forces version 5.2.1+ to fix source code theft vulnerabilities
 
 The `overrides` section forces npm to use newer, secure versions of these packages even though `react-scripts` doesn't explicitly require them.
 
@@ -108,5 +113,5 @@ The `overrides` section forces npm to use newer, secure versions of these packag
 
 ---
 
-**Last Updated:** January 19, 2026  
+**Last Updated:** January 19, 2024  
 **Status:** Security vulnerabilities fixed, deprecation warnings are informational only
